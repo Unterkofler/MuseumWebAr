@@ -54,7 +54,7 @@
           }
         };
 
-        el.addEventListener('click', function () {
+        el.addEventListener('touchstart', function () {
           // Zeigen Sie den Dialog mit der spezifischen Frage für dieses Objekt an
           if (!answered[el.id] || !answered[el.id].answered) {
             showDialog(questions[el.id]);
