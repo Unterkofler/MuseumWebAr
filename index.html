@@ -19,13 +19,39 @@
       opacity: 0.5;
     }
     .dialog {
-  border-radius: 10px;
-}
+      border-radius: 10px;
+      width: 300px; /* Setze die Breite des Dialogs */
+      height: 200px; /* Setze die Höhe des Dialogs */
+      background-color: white;
+      padding: 20px;
+      border: 1px solid black;
+    }
+    .dialog h2 {
+      margin-top: 0;
+    }
   </style>
   <script>
-    var score = 0; // Anfangspunktestand
+var score = 0; // Anfangspunktestand
     var answered = {}; // Objekt, um den Antwortstatus für jedes Objekt zu speichern
     var startDialogShown = false; // Flag, um zu überprüfen, ob der Startdialog gezeigt wurde
+    var currentInstruction = 1; // Initialisierung von currentInstruction
+
+    function nextInstruction() {
+      var currentDiv = document.getElementById('instruction' + currentInstruction);
+      currentDiv.style.display = 'none';
+      currentInstruction++;
+      var nextDiv = document.getElementById('instruction' + currentInstruction);
+      if (nextDiv) {
+        nextDiv.style.display = 'block';
+      } else {
+        startGame();
+      }
+    }
+
+    window.startGame = function () {
+      var startDialog = document.getElementById('startDialog');
+      startDialog.parentNode.removeChild(startDialog);
+    };
 
     AFRAME.registerComponent('change-color-and-show-dialog', {
       init: function () {
@@ -57,15 +83,15 @@
         };
         var timer; // Timer-Variable
 
-      el.addEventListener('mouseenter', function () {
-      // Starte den Timer, wenn der Cursor das Objekt betritt
-      timer = setTimeout(function() {
-        // Zeigen Sie den Dialog mit der spezifischen Frage für dieses Objekt an, nach Ablauf der Zeit
-        if (!answered[el.id] || !answered[el.id].answered) {
-          showDialog(questions[el.id]);
-        }
-      }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
-    });
+        el.addEventListener('mouseenter', function () {
+          // Starte den Timer, wenn der Cursor das Objekt betritt
+          timer = setTimeout(function() {
+            // Zeigen Sie den Dialog mit der spezifischen Frage für dieses Objekt an, nach Ablauf der Zeit
+            if (!answered[el.id] || !answered[el.id].answered) {
+              showDialog(questions[el.id]);
+            }
+          }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
+        });
 
         function showDialog(questionObj) {
           var dialogHTML = `
@@ -111,30 +137,40 @@
         function showStartDialog() {
           startDialogShown = true;
           var startDialogHTML = `
-              <div id="startDialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
-              <h2>Willkommen zum Museumsbesuch-Simulator!</h2>
-              <p>In diesem interaktiven Erlebnis kannst du durch ein virtuelles Museum schlendern und dabei dein Wissen testen. Folge dieser Spielanleitung, um das Beste aus deinem Besuch herauszuholen:</p>
-              <ol>
-                <li>Starten des Spiels: Klicke auf "OK", um das Spiel zu starten.</li>
-                <li>Erkundung des Museums: Bewege deinen Cursor über die verschiedenen Objekte im Museum, um mehr über sie zu erfahren.</li>
-                <li>Interaktion mit den Objekten: Halte deinen Cursor für zwei Sekunden über einem Objekt, um eine Frage dazu zu erhalten.</li>
-                <li>Beantwortung der Fragen: Wähle die richtige Antwort aus den angebotenen Optionen aus.</li>
-                <li>Sammeln von Punkten: Für jede richtige Antwort erhältst du Punkte, die deinen Gesamtpunktestand erhöhen.</li>
-                <li>Weiter zur nächsten Station: Erkunde das gesamte Museum, indem du alle Objekte besuchst und ihre Fragen beantwortest.</li>
-                <li>Abschluss des Besuchs: Beende das Spiel und sammle so viele Punkte wie möglich!</li>
-              </ol>
-              <button onclick="startGame()">OK</button>
+          <div id="startDialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
+            <h2>Willkommen zum Museumsbesuch-Simulator!</h2>
+            <div id="instruction1">
+              <p>1. Starten des Spiels: Klicke auf "Weiter", um das Spiel zu starten.</p>
+              <button onclick="nextInstruction()">Weiter</button>
             </div>
+            <div id="instruction2" style="display: none;">
+              <p>2. Erkundung des Museums: Bewege deinen Cursor über die verschiedenen Objekte im Museum, um mehr über sie zu erfahren.</p>
+              <button onclick="nextInstruction()">Weiter</button>
+            </div>
+            <div id="instruction3" style="display: none;">
+              <p>3. Interaktion mit den Objekten: Halte deinen Cursor für zwei Sekunden über einem Objekt, um eine Frage dazu zu erhalten.</p>
+              <button onclick="nextInstruction()">Weiter</button>
+            </div>
+            <div id="instruction4" style="display: none;">
+              <p>4. Beantwortung der Fragen: Wähle die richtige Antwort aus den angebotenen Optionen aus.</p>
+              <button onclick="nextInstruction()">Weiter</button>
+            </div>
+  <div id="instruction5" style="display: none;">
+    <p>5. Sammeln von Punkten: Für jede richtige Antwort erhältst du Punkte, die deinen Gesamtpunktestand erhöhen.</p>
+    <button onclick="nextInstruction()">Weiter</button>
+  </div>
+  <div id="instruction6" style="display: none;">
+    <p>6. Weiter zur nächsten Station: Erkunde das gesamte Museum, indem du alle Objekte besuchst und ihre Fragen beantwortest.</p>
+    <button onclick="nextInstruction()">Weiter</button>
+  </div>
+  <div id="instruction7" style="display: none;">
+    <p>7. Abschluss des Besuchs: Beende das Spiel und sammle so viele Punkte wie möglich!</p>
+    <button onclick="startGame()">Spiel Starten</button>
+  </div>
+</div>
           `;
           document.body.insertAdjacentHTML('beforeend', startDialogHTML);
         }
-
-
-        // Spiel starten, nachdem der Startdialog bestätigt wurde
-        window.startGame = function () {
-          var startDialog = document.getElementById('startDialog');
-          startDialog.parentNode.removeChild(startDialog);
-        };
       }
     });
   </script>
