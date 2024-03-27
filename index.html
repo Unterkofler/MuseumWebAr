@@ -21,17 +21,29 @@
     .dialog {
       border-radius: 10px;
       width: 300px; /* Setze die Breite des Dialogs */
-      height: 200px; /* Setze die Höhe des Dialogs */
-      background-color: white;
-      padding: 20px;
-      border: 1px solid black;
+      height: auto; /* Setze die Höhe des Dialogs auf automatisch, um den Inhalt anzupassen */
+      text-align: center; /* Zentriere den Text */
     }
-    .dialog h2 {
-      margin-top: 0;
+    .dialog p {
+      margin-bottom: 20px; /* Füge etwas Abstand zwischen Überschrift und Text hinzu */
+    }
+    .dialog ul {
+      list-style-type: none; /* Entferne die Aufzählungszeichen */
+      padding: 0; /* Entferne den Abstand innerhalb der Liste */
+    }
+    .dialog ul li {
+      margin-bottom: 10px; /* Füge etwas Abstand zwischen den Antworten hinzu */
+      display: inline-block; /* Mache die Antwortmöglichkeiten inline */
+    }
+    .dialog .answers-row {
+      display: block; /* Mache die Zeilen der Antworten block */
+    }
+    .dialog .answers-row ul li:nth-child(odd) {
+      margin-right: 20px; /* Füge den Antwortmöglichkeiten A und C 20px Abstand hinzu */
     }
   </style>
   <script>
-var score = 0; // Anfangspunktestand
+    var score = 0; // Anfangspunktestand
     var answered = {}; // Objekt, um den Antwortstatus für jedes Objekt zu speichern
     var startDialogShown = false; // Flag, um zu überprüfen, ob der Startdialog gezeigt wurde
     var currentInstruction = 1; // Initialisierung von currentInstruction
@@ -67,18 +79,18 @@ var score = 0; // Anfangspunktestand
         var questions = {
           box: {
             question: "Was ist 2+2?",
-            answers: ["3", "4", "5", "6"],
-            correctAnswer: "4"
+            answers: ["A: 3", "B: 4", "C: 5", "D: 6"],
+            correctAnswer: "B"
           },
           sphere: {
             question: "Was ist die Hauptstadt von Frankreich?",
-            answers: ["London", "Rom", "Paris", "Berlin"],
-            correctAnswer: "Paris"
+            answers: ["A: London", "B: Rom", "C: Paris", "D: Berlin"],
+            correctAnswer: "C"
           },
           cylinder: {
             question: "Wie viele Ecken hat ein Würfel?",
-            answers: ["4", "6", "8", "12"],
-            correctAnswer: "8"
+            answers: ["A: 4", "B: 6", "C: 8", "D: 12"],
+            correctAnswer: "C"
           }
         };
         var timer; // Timer-Variable
@@ -98,9 +110,16 @@ var score = 0; // Anfangspunktestand
             <div id="dialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
               <h2>Frage:</h2>
               <p>${questionObj.question}</p>
-              <ul>
-                ${questionObj.answers.map(answer => `<li><button onclick="checkAnswer('${answer}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
-              </ul>
+              <div class="answers-row">
+                <ul>
+                  ${questionObj.answers.slice(0, 2).map(answer => `<li><button onclick="checkAnswer('${answer.charAt(3)}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
+                </ul>
+              </div>
+              <div class="answers-row">
+                <ul>
+                  ${questionObj.answers.slice(2).map(answer => `<li><button onclick="checkAnswer('${answer.charAt(3)}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
+                </ul>
+              </div>
             </div>
           `;
           document.body.insertAdjacentHTML('beforeend', dialogHTML);
