@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
@@ -54,7 +53,7 @@
           }
         };
 
-        el.addEventListener('touchstart', function () {
+        el.addEventListener('click', function () {
           // Zeigen Sie den Dialog mit der spezifischen Frage für dieses Objekt an
           if (!answered[el.id] || !answered[el.id].answered) {
             showDialog(questions[el.id]);
@@ -131,21 +130,21 @@
   <!-- Benutzerdefinierte Marker -->
   <a-marker id="marker1" type="pattern" url="marker\pattern-C_Marker.patt">
     <!-- Platzieren Sie das virtuelle Objekt innerhalb dieses Markers -->
-    <a-box id="box" position="0 0 0" color="red" change-color-and-show-dialog class="raycastable"></a-box>
+    <a-box id="box" position="0 0.5 0" color="red" change-color-and-show-dialog class="raycastable"></a-box>
   </a-marker>
   <a-marker id="marker2" type="pattern" url="marker\pattern-B_Marker.patt">
     <!-- Platzieren Sie ein anderes virtuelles Objekt innerhalb dieses Markers -->
-    <a-sphere id="sphere" position="0 0 0" radius="0.5" color="blue" change-color-and-show-dialog class="raycastable"></a-sphere>
+    <a-sphere id="sphere" position="0 0.5 0" radius="0.5" color="blue" change-color-and-show-dialog class="raycastable"></a-sphere>
   </a-marker>
   <a-marker id="marker3" type="pattern" url="marker\pattern-A_Marker.patt">
     <!-- Platzieren Sie ein anderes virtuelles Objekt innerhalb dieses Markers -->
-    <a-cylinder id="cylinder" position="0 0 0" radius="0.5" height="1" color="yellow" change-color-and-show-dialog class="raycastable"></a-cylinder>
+    <a-cylinder id="cylinder" position="0 0.5 0" radius="0.5" height="1" color="yellow" change-color-and-show-dialog class="raycastable"></a-cylinder>
   </a-marker>
 
   <!-- Kamera mit Cursor und Raycaster -->
-  <a-camera raycaster="objects: .raycastable">
+  <a-camera-static raycaster="objects: .raycastable">
     <a-cursor></a-cursor>
-  </a-camera>
+  </a-camera-static>
 </a-scene>
 </body>
 </html>
