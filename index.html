@@ -18,6 +18,9 @@
     .transparent {
       opacity: 0.5;
     }
+    .dialog {
+  border-radius: 10px;
+}
   </style>
   <script>
     var score = 0; // Anfangspunktestand
@@ -66,7 +69,7 @@
 
         function showDialog(questionObj) {
           var dialogHTML = `
-            <div id="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
+            <div id="dialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
               <h2>Frage:</h2>
               <p>${questionObj.question}</p>
               <ul>
@@ -104,18 +107,28 @@
           scoreElement.textContent = "Punktestand: " + score;
         }
 
-        // Startdialog anzeigen
+        // Startdialog anzeigen -->
         function showStartDialog() {
           startDialogShown = true;
           var startDialogHTML = `
-            <div id="startDialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
-              <h2>Spielanleitung:</h2>
-              <p>Hier kommt die Spielanleitung hin.</p>
+              <div id="startDialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
+              <h2>Willkommen zum Museumsbesuch-Simulator!</h2>
+              <p>In diesem interaktiven Erlebnis kannst du durch ein virtuelles Museum schlendern und dabei dein Wissen testen. Folge dieser Spielanleitung, um das Beste aus deinem Besuch herauszuholen:</p>
+              <ol>
+                <li>Starten des Spiels: Klicke auf "OK", um das Spiel zu starten.</li>
+                <li>Erkundung des Museums: Bewege deinen Cursor über die verschiedenen Objekte im Museum, um mehr über sie zu erfahren.</li>
+                <li>Interaktion mit den Objekten: Halte deinen Cursor für zwei Sekunden über einem Objekt, um eine Frage dazu zu erhalten.</li>
+                <li>Beantwortung der Fragen: Wähle die richtige Antwort aus den angebotenen Optionen aus.</li>
+                <li>Sammeln von Punkten: Für jede richtige Antwort erhältst du Punkte, die deinen Gesamtpunktestand erhöhen.</li>
+                <li>Weiter zur nächsten Station: Erkunde das gesamte Museum, indem du alle Objekte besuchst und ihre Fragen beantwortest.</li>
+                <li>Abschluss des Besuchs: Beende das Spiel und sammle so viele Punkte wie möglich!</li>
+              </ol>
               <button onclick="startGame()">OK</button>
             </div>
           `;
           document.body.insertAdjacentHTML('beforeend', startDialogHTML);
         }
+
 
         // Spiel starten, nachdem der Startdialog bestätigt wurde
         window.startGame = function () {
