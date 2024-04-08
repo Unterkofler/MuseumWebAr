@@ -128,12 +128,12 @@
               <p>${questionObj.question}</p>
               <div class="answers-row">
                 <ul>
-                  ${questionObj.answers.slice(0, 2).map(answer => `<li><button onclick="checkAnswer('${answer.charAt(3)}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
+                  ${questionObj.answers.slice(0, 2).map(answer => `<li><button onclick="checkAnswer('${answer.charAt(0)}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
                 </ul>
               </div>
               <div class="answers-row">
                 <ul>
-                  ${questionObj.answers.slice(2).map(answer => `<li><button onclick="checkAnswer('${answer.charAt(3)}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
+                  ${questionObj.answers.slice(2).map(answer => `<li><button onclick="checkAnswer('${answer.charAt(0)}', '${questionObj.correctAnswer}', '${el.id}')">${answer}</button></li>`).join('')}
                 </ul>
               </div>
             </div>
