@@ -43,10 +43,12 @@
     }
   </style>
   <script>
-    var score = 0; // Anfangspunktestand
+    var correctAnswers = 0; // Anfangspunktestand
     var answered = {}; // Objekt, um den Antwortstatus für jedes Objekt zu speichern
     var startDialogShown = false; // Flag, um zu überprüfen, ob der Startdialog gezeigt wurde
     var currentInstruction = 1; // Initialisierung von currentInstruction
+    var totalQuestions = 6;
+    var questionsSoFare = 0;
 
     function nextInstruction() {
       var currentDiv = document.getElementById('instruction' + currentInstruction);
@@ -147,12 +149,12 @@
             answered[objectId] = { answered: true };
           }
           if (selectedAnswer === correctAnswer) {
-            score++; // Erhöhe den Punktestand um 1, wenn die Antwort richtig ist
+            correctAnswers++; // Erhöhe den Punktestand um 1, wenn die Antwort richtig ist
           }
-
+          questionsSoFare++;
           var obj = document.getElementById(objectId);
           obj.setAttribute('material', 'opacity', 0.5);
-          updateScore(); // Aktualisiere den Punktestand
+          updateScoreText(); // Aktualisiere den Punktestand
           closeDialog();
         };
 
@@ -163,10 +165,10 @@
         }
 
         // Funktion zum Aktualisieren des Punktestands
-        function updateScore() {
-          var scoreElement = document.getElementById('score');
-          scoreElement.textContent = "Punktestand: " + score;
-        }
+  function updateScoreText() {
+    var scoreElement = document.getElementById('score');
+    scoreElement.textContent = `Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}`;
+  }
 
         // Startdialog anzeigen -->
         function showStartDialog() {
@@ -211,9 +213,9 @@
   </script>
 </head>
 <body>
-<div id="scoreBar"> <!-- Score-Bar am oberen Rand -->
-  <span id="score">Punktestand: 0</span>
-</div>
+  <div id="scoreBar">
+    <span id="score">Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}</span>
+  </div>
 <a-scene embedded arjs='sourceType: webcam;'>
   <!-- Benutzerdefinierte Marker -->
   <a-marker id="marker6" type="pattern" url="marker\pattern-A_Marker.patt">
