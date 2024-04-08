@@ -155,6 +155,7 @@
           var obj = document.getElementById(objectId);
           obj.setAttribute('material', 'opacity', 0.5);
           updateScoreText(); // Aktualisiere den Punktestand
+          checkGameStatus()
           closeDialog();
         };
 
@@ -169,6 +170,16 @@
     var scoreElement = document.getElementById('score');
     scoreElement.textContent = `Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}`;
   }
+
+  function checkGameStatus() {
+      if (questionsSoFare === totalQuestions) {
+        updateScoreText();
+        showEndDialog("Spiel vorbei")
+      }
+    }
+    function showDialog(message) {
+      alert(message);
+    }
 
         // Startdialog anzeigen -->
         function showStartDialog() {
