@@ -174,19 +174,19 @@
               <p>4. Beantwortung der Fragen: Wähle die richtige Antwort aus den angebotenen Optionen aus.</p>
               <button onclick="nextInstruction()">Weiter</button>
             </div>
-  <div id="instruction5" style="display: none;">
-    <p>5. Sammeln von Punkten: Für jede richtige Antwort erhältst du Punkte, die deinen Gesamtpunktestand erhöhen.</p>
-    <button onclick="nextInstruction()">Weiter</button>
-  </div>
-  <div id="instruction6" style="display: none;">
-    <p>6. Weiter zur nächsten Station: Erkunde das gesamte Museum, indem du alle Objekte besuchst und ihre Fragen beantwortest.</p>
-    <button onclick="nextInstruction()">Weiter</button>
-  </div>
-  <div id="instruction7" style="display: none;">
-    <p>7. Abschluss des Besuchs: Beende das Spiel und sammle so viele Punkte wie möglich!</p>
-    <button onclick="startGame()">Spiel Starten</button>
-  </div>
-</div>
+            <div id="instruction5" style="display: none;">
+              <p>5. Sammeln von Punkten: Für jede richtige Antwort erhältst du Punkte, die deinen Gesamtpunktestand erhöhen.</p>
+              <button onclick="nextInstruction()">Weiter</button>
+            </div>
+            <div id="instruction6" style="display: none;">
+              <p>6. Weiter zur nächsten Station: Erkunde das gesamte Museum, indem du alle Objekte besuchst und ihre Fragen beantwortest.</p>
+              <button onclick="nextInstruction()">Weiter</button>
+            </div>
+            <div id="instruction7" style="display: none;">
+              <p>7. Abschluss des Besuchs: Beende das Spiel und sammle so viele Punkte wie möglich!</p>
+              <button onclick="startGame()">Spiel Starten</button>
+            </div>
+          </div>
           `;
           document.body.insertAdjacentHTML('beforeend', startDialogHTML);
         }
@@ -212,7 +212,6 @@
     <!-- Platzieren Sie ein anderes virtuelles Objekt innerhalb dieses Markers -->
     <a-cylinder id="cylinder" position="0 0.5 0" radius="0.5" height="1" color="yellow" change-color-and-show-dialog class="raycastable"></a-cylinder>
   </a-marker>
-
   <!-- Kamera mit Cursor und Raycaster -->
   <a-camera-static raycaster="objects: .raycastable">
     <a-cursor></a-cursor>
