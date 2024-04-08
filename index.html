@@ -49,7 +49,6 @@
     var currentInstruction = 1; // Initialisierung von currentInstruction
     var totalQuestions = 6;
     var questionsSoFare = 0;
-    updateScoreText();
 
     function nextInstruction() {
       var currentDiv = document.getElementById('instruction' + currentInstruction);
@@ -156,8 +155,8 @@
           var obj = document.getElementById(objectId);
           obj.setAttribute('material', 'opacity', 0.5);
           updateScoreText(); // Aktualisiere den Punktestand
-          checkGameStatus()
           closeDialog();
+          checkGameStatus();
         };
 
         // Funktion zum Schließen des Dialogs
@@ -178,7 +177,7 @@
         showEndDialog("Spiel vorbei")
       }
     }
-    function showDialog(message) {
+    function showEndDialog(message) {
       alert(message);
     }
 
