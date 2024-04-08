@@ -49,6 +49,7 @@
     var currentInstruction = 1; // Initialisierung von currentInstruction
     var totalQuestions = 6;
     var questionsSoFare = 0;
+    updateScoreText();
 
     function nextInstruction() {
       var currentDiv = document.getElementById('instruction' + currentInstruction);
@@ -225,7 +226,7 @@
 </head>
 <body>
   <div id="scoreBar">
-    <span id="score">Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}</span>
+    <span id="score">Fragen <span id="totalQuestions"></span>/<span id="questionsSoFare"></span> - Richtig beantwortet: <span id="correctAnswers"></span></span>
   </div>
 <a-scene embedded arjs='sourceType: webcam;'>
   <!-- Benutzerdefinierte Marker -->
@@ -252,5 +253,11 @@
     <a-cursor></a-cursor>
   </a-camera-static>
 </a-scene>
+<script>
+  // Verweise auf die Variablen und setze ihre Werte
+  document.getElementById('totalQuestions').textContent = totalQuestions;
+  document.getElementById('questionsSoFare').textContent = questionsSoFare;
+  document.getElementById('correctAnswers').textContent = correctAnswers;
+</script>
 </body>
 </html>
