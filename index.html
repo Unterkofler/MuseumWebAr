@@ -120,7 +120,7 @@
             if (!answered[el.id] || !answered[el.id].answered) {
               showDialog(questions[el.id]);
             }
-          }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
+          }, 1500); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
         });
 
         function showDialog(questionObj) {
@@ -259,7 +259,16 @@
 
   <!-- Kamera mit Cursor und Raycaster -->
   <a-camera-static raycaster="objects: .raycastable">
-    <a-cursor id="cursor"></a-cursor> 
+    <a-cursor
+    animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+    animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+    fuse="true"
+    fuse-timeout="1500"
+    material="color: yellow; shader: flat"
+    position="0 0 -3"
+    geometry="primitive: ring">
+  </a-cursor>
   </a-camera-static>
 </a-scene>
 <script>
