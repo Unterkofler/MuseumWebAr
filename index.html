@@ -123,8 +123,6 @@
           }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
         });
 
-
-
         function showDialog(questionObj) {
           var dialogHTML = `
             <div id="dialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
@@ -251,7 +249,8 @@
   </a-marker>
   <!-- Kamera mit Cursor und Raycaster -->
   <a-camera-static raycaster="objects: .raycastable">
-    <a-cursor id="cursor"></a-cursor>  </a-camera-static>
+    <a-cursor id="cursor"></a-cursor> 
+  </a-camera-static>
 </a-scene>
 <script>
   // Verweise auf die Variablen und setze ihre Werte
