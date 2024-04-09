@@ -114,29 +114,14 @@
         var timer; // Timer-Variable
 
         el.addEventListener('mouseenter', function () {
-  // Ändere die Farbe des Cursors auf Rot
-  var cursor = document.getElementById('cursor');
-  cursor.setAttribute('color', 'red');
-
-  // Ändere die Größe des augmentierten Objekts
-  el.setAttribute('scale', {x: 0.9, y: 0.9, z: 0.9});
-
-  // Zeige den Dialog mit der spezifischen Frage für dieses Objekt an
-  setTimeout(function() {
-    if (!answered[el.id] || !answered[el.id].answered) {
-      showDialog(questions[el.id]);
-    }
-  }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 2 Sekunden)
-});
-
-el.addEventListener('mouseleave', function () {
-  // Setze die Farbe des Cursors auf die ursprüngliche Farbe zurück
-  var cursor = document.getElementById('cursor');
-  cursor.setAttribute('color', 'white');
-
-  // Setze die Größe des augmentierten Objekts zurück
-  el.setAttribute('scale', {x: 1, y: 1, z: 1});
-});
+          // Starte den Timer, wenn der Cursor das Objekt betritt
+          timer = setTimeout(function() {
+            // Zeigen Sie den Dialog mit der spezifischen Frage für dieses Objekt an, nach Ablauf der Zeit
+            if (!answered[el.id] || !answered[el.id].answered) {
+              showDialog(questions[el.id]);
+            }
+          }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
+        });
 
 
 
@@ -247,9 +232,8 @@ el.addEventListener('mouseleave', function () {
 <a-scene embedded arjs='sourceType: webcam;'>
   <!-- Benutzerdefinierte Marker -->
   <a-marker id="marker6" type="pattern" url="marker\pattern-A_Marker.patt">
-    <a-entity>
-      <a-entity id="button" geometry="primitive: plane; height: 1.5; width: 3" rotation="-90 0 0" material="src: images/first_4.png; side: double;" change-color-and-show-dialog></a-entity>
-    </a-entity>  </a-marker>
+      <a-plane src="images/first_1.png" height="1.5" width="3" position="0 0 0" rotation="-90 0 0" id="image1" material="side: double;" change-color-and-show-dialog="raycastable"></a-plane>
+ </a-marker>
   <a-marker id="marker5" type="pattern" url="marker\pattern-B_Marker.patt">
     <a-plane src="images/first_2.png" height="1.5" width="3" position="0 0 0" rotation="-90 0 0" id="image2" material="side: double;" change-color-and-show-dialog="raycastable"></a-plane>
   </a-marker>
