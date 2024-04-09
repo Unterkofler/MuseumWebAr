@@ -228,28 +228,33 @@
     <span id="score">Fragen <span id="totalQuestions"></span>/<span id="questionsSoFare"></span> - Richtig beantwortet: <span id="correctAnswers"></span></span>
   </div>
   <a-scene embedded arjs='sourceType: webcam;' antialias="true" renderer="logarithmicDepthBuffer: true" >  <!-- Benutzerdefinierte Marker -->
+    <a-assets>
+      <a-asset-item id="scene" src="gltf/scene.gltf"></a-asset-item>
+  </a-assets>
+
+
   <a-marker id="marker6" type="pattern" url="marker\pattern-A_Marker.patt">
-    <a-gltf-model src="gltf/scene.gltf" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
+    <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
 </a-marker>
 
 <a-marker id="marker5" type="pattern" url="marker\pattern-B_Marker.patt">
-    <a-gltf-model src="gltf/scene.gltf" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image2" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
+    <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image2" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
 </a-marker>
 
 <a-marker id="marker1" type="pattern" url="marker\pattern-C_Marker.patt">
-    <a-gltf-model src="gltf/scene.gltf" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image3" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
+    <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image3" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
 </a-marker>
 
 <a-marker id="marker4" type="pattern" url="marker\pattern-D_Marker.patt">
-    <a-gltf-model src="gltf/scene.gltf" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image4" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
+    <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image4" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
 </a-marker>
 
 <a-marker id="marker3" type="pattern" url="marker\pattern-E_Marker.patt">
-    <a-gltf-model src="gltf/scene.gltf" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image5" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
+    <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image5" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
 </a-marker>
 
 <a-marker id="marker2" type="pattern" url="marker\pattern-F_Marker.patt">
-    <a-gltf-model src="gltf/scene.gltf" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image6" material="side: double;" change-color-and-show-dialog="raycastable"></a-gltf-model>
+    <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0"  position="0 0.2 0" id="image6" material="transparent: true; opacity: 0.5;" change-color-and-show-dialog="raycastable"></a-gltf-model>
 </a-marker>
 
   <!-- Kamera mit Cursor und Raycaster -->
