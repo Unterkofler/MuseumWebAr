@@ -114,14 +114,31 @@
         var timer; // Timer-Variable
 
         el.addEventListener('mouseenter', function () {
-          // Starte den Timer, wenn der Cursor das Objekt betritt
-          timer = setTimeout(function() {
-            // Zeigen Sie den Dialog mit der spezifischen Frage für dieses Objekt an, nach Ablauf der Zeit
-            if (!answered[el.id] || !answered[el.id].answered) {
-              showDialog(questions[el.id]);
-            }
-          }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
-        });
+  // Ändere die Farbe des Cursors auf Rot
+  var cursor = document.getElementById('cursor');
+  cursor.setAttribute('color', 'red');
+
+  // Ändere die Größe des augmentierten Objekts
+  el.setAttribute('scale', {x: 0.9, y: 0.9, z: 0.9});
+
+  // Zeige den Dialog mit der spezifischen Frage für dieses Objekt an
+  setTimeout(function() {
+    if (!answered[el.id] || !answered[el.id].answered) {
+      showDialog(questions[el.id]);
+    }
+  }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 2 Sekunden)
+});
+
+el.addEventListener('mouseleave', function () {
+  // Setze die Farbe des Cursors auf die ursprüngliche Farbe zurück
+  var cursor = document.getElementById('cursor');
+  cursor.setAttribute('color', 'white');
+
+  // Setze die Größe des augmentierten Objekts zurück
+  el.setAttribute('scale', {x: 1, y: 1, z: 1});
+});
+
+
 
         function showDialog(questionObj) {
           var dialogHTML = `
@@ -250,8 +267,7 @@
   </a-marker>
   <!-- Kamera mit Cursor und Raycaster -->
   <a-camera-static raycaster="objects: .raycastable">
-    <a-cursor></a-cursor>
-  </a-camera-static>
+    <a-cursor id="cursor"></a-cursor>  </a-camera-static>
 </a-scene>
 <script>
   // Verweise auf die Variablen und setze ihre Werte
