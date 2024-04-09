@@ -123,6 +123,8 @@
           }, 2000); // Hier kannst du die Zeit in Millisekunden anpassen (hier: 1,5 Sekunden)
         });
 
+
+
         function showDialog(questionObj) {
           var dialogHTML = `
             <div id="dialog" class="dialog" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
@@ -230,8 +232,8 @@
 <a-scene embedded arjs='sourceType: webcam;'>
   <!-- Benutzerdefinierte Marker -->
   <a-marker id="marker6" type="pattern" url="marker\pattern-A_Marker.patt">
-    <a-plane src="images/first_1.png" height="1.5" width="3" position="0 0 0" rotation="-90 0 0" id="image1" material="side: double;" change-color-and-show-dialog="raycastable"></a-plane>
-  </a-marker>
+      <a-plane src="images/first_1.png" height="1.5" width="3" position="0 0 0" rotation="-90 0 0" id="image1" material="side: double;" change-color-and-show-dialog="raycastable"></a-plane>
+ </a-marker>
   <a-marker id="marker5" type="pattern" url="marker\pattern-B_Marker.patt">
     <a-plane src="images/first_2.png" height="1.5" width="3" position="0 0 0" rotation="-90 0 0" id="image2" material="side: double;" change-color-and-show-dialog="raycastable"></a-plane>
   </a-marker>
@@ -249,8 +251,7 @@
   </a-marker>
   <!-- Kamera mit Cursor und Raycaster -->
   <a-camera-static raycaster="objects: .raycastable">
-    <a-cursor></a-cursor>
-  </a-camera-static>
+    <a-cursor id="cursor"></a-cursor>  </a-camera-static>
 </a-scene>
 <script>
   // Verweise auf die Variablen und setze ihre Werte
