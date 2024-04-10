@@ -41,7 +41,7 @@
         <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
         
         <a-plane class="answer" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-          <a-text class="answer" visible="false" value="Was ist die Hauptstadt von Frankreich?" color="#000000"></a-text>
+          <a-text class="answer" visible="false" value="Frankreich?" color="#000000"></a-text>
         </a-plane>
 
         <!-- Antwortmöglichkeiten -->
@@ -49,6 +49,111 @@
         <a-text value="Berlin"  class="answer" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
         <a-text value="Madrid"  class="answer" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
         <a-text value="Rom"  class="answer" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
+      </a-marker>
+
+      <a-marker id="marker2" type="pattern" url="marker\pattern-B_Marker.patt">
+        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener1></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+        
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-entity class="answer1" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 2; height: 2; depth: 2" material="color: blue" position="-0.55 0.5 0.9" right-answer></a-entity>
+        <a-entity class="answer1" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.9" false-answer ></a-entity>
+        <a-entity class="answer1" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.75" false-answer ></a-entity>
+        <a-entity class="answer1" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
+        
+        <a-plane class="answer1" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="answer1" visible="false" value="Deutschland?" color="#000000"></a-text>
+        </a-plane>
+
+        <!-- Antwortmöglichkeiten -->
+        <a-text value="Paris"  class="answer1" visible="false" position="-0.55 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Berlin"  class="answer1" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Madrid"  class="answer1" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Rom"  class="answer1" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
+      </a-marker>
+
+      <a-marker id="marker2" type="pattern" url="marker\pattern-C_Marker.patt">
+        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener2></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+        
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-entity class="answer2" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 2; height: 2; depth: 2" material="color: blue" position="-0.55 0.5 0.9" right-answer></a-entity>
+        <a-entity class="answer2" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.9" false-answer ></a-entity>
+        <a-entity class="answer2" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.75" false-answer ></a-entity>
+        <a-entity class="answer2" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
+        
+        <a-plane class="answer2" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="answer2" visible="false" value="Italien?" color="#000000"></a-text>
+        </a-plane>
+
+        <!-- Antwortmöglichkeiten -->
+        <a-text value="Paris"  class="answer2" visible="false" position="-0.55 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Berlin"  class="answer2" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Madrid"  class="answer2" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Rom"  class="answer2" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
+      </a-marker>
+
+      <a-marker id="marker2" type="pattern" url="marker\pattern-D_Marker.patt">
+        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener3></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+        
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-entity class="answer3" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 2; height: 2; depth: 2" material="color: blue" position="-0.55 0.5 0.9" right-answer></a-entity>
+        <a-entity class="answer3" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.9" false-answer ></a-entity>
+        <a-entity class="answer3" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.75" false-answer ></a-entity>
+        <a-entity class="answer3" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
+        
+        <a-plane class="answer3" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="answer3" visible="false" value="Spanien?" color="#000000"></a-text>
+        </a-plane>
+
+        <!-- Antwortmöglichkeiten -->
+        <a-text value="Paris"  class="answer3" visible="false" position="-0.55 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Berlin"  class="answer3" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Madrid"  class="answer3" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Rom"  class="answer3" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
+      </a-marker>
+
+      <a-marker id="marker2" type="pattern" url="marker\pattern-E_Marker.patt">
+        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener4></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+        
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-entity class="answer4" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 2; height: 2; depth: 2" material="color: blue" position="-0.55 0.5 0.9" right-answer></a-entity>
+        <a-entity class="answer4" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.9" false-answer ></a-entity>
+        <a-entity class="answer4" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.75" false-answer ></a-entity>
+        <a-entity class="answer4" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
+        
+        <a-plane class="answer4" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="answer4" visible="false" value="Österreich?" color="#000000"></a-text>
+        </a-plane>
+
+        <!-- Antwortmöglichkeiten -->
+        <a-text value="Paris"  class="answer4" visible="false" position="-0.55 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Berlin"  class="answer4" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Madrid"  class="answer4" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Rom"  class="answer4" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
+      </a-marker>
+
+      <a-marker id="marker2" type="pattern" url="marker\pattern-F_Marker.patt">
+        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener5></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+        
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-entity class="answer5" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 2; height: 2; depth: 2" material="color: blue" position="-0.55 0.5 0.9" right-answer></a-entity>
+        <a-entity class="answer5" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.9" false-answer ></a-entity>
+        <a-entity class="answer5" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.75" false-answer ></a-entity>
+        <a-entity class="answer5" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
+        
+        <a-plane class="answer5" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="answer5" visible="false" value="Schweitz?" color="#000000"></a-text>
+        </a-plane>
+
+        <!-- Antwortmöglichkeiten -->
+        <a-text value="Paris"  class="answer5" visible="false" position="-0.55 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Berlin"  class="answer5" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Madrid"  class="answer5" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Rom"  class="answer5" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
       </a-marker>
 
       <!-- Weitere Marker hier einfügen -->
@@ -73,6 +178,11 @@
       var totalQuestions = 6;
       var questionsSoFare = 0;
       var modelClicked = false;
+      var modelClicked1 = false;
+      var modelClicked2 = false;
+      var modelClicked3 = false;
+      var modelClicked4 = false;
+      var modelClicked5 = false;
     
       function updateScoreText() {
         var scoreElement = document.getElementById('score');
@@ -93,8 +203,73 @@
             updateScoreText();
           });
         });
+        var answerObjects1 = document.querySelectorAll('.answer1');
+        answerObjects1.forEach(function (answerObject1) {
+          answerObject1.addEventListener('click', function () {
+            answerObjects1.forEach(function (answer1) {
+              answer1.setAttribute('visible', false);
+            });
+            if (answerObject1.classList.contains('right-answer')) {
+              correctAnswers++;
+            }
+            questionsSoFare++;
+            updateScoreText();
+          });
+        });
+        var answerObjects2 = document.querySelectorAll('.answer2');
+        answerObjects2.forEach(function (answerObject1) {
+          answerObject2.addEventListener('click', function () {
+            answerObjects2.forEach(function (answer2) {
+              answer2.setAttribute('visible', false);
+            });
+            if (answerObject2.classList.contains('right-answer')) {
+              correctAnswers++;
+            }
+            questionsSoFare++;
+            updateScoreText();
+          });
+        });
+        var answerObjects3 = document.querySelectorAll('.answer3');
+        answerObjects3.forEach(function (answerObject3) {
+          answerObject3.addEventListener('click', function () {
+            answerObjects3.forEach(function (answer3) {
+              answer3.setAttribute('visible', false);
+            });
+            if (answerObject3.classList.contains('right-answer')) {
+              correctAnswers++;
+            }
+            questionsSoFare++;
+            updateScoreText();
+          });
+        });
+        var answerObjects4 = document.querySelectorAll('.answer4');
+        answerObjects4.forEach(function (answerObject4) {
+          answerObject4.addEventListener('click', function () {
+            answerObjects4.forEach(function (answer4) {
+              answer4.setAttribute('visible', false);
+            });
+            if (answerObject4.classList.contains('right-answer')) {
+              correctAnswers++;
+            }
+            questionsSoFare++;
+            updateScoreText();
+          });
+        });
+        var answerObjects5 = document.querySelectorAll('.answer5');
+        answerObjects5.forEach(function (answerObject5) {
+          answerObject5.addEventListener('click', function () {
+            answerObjects5.forEach(function (answer5) {
+              answer5.setAttribute('visible', false);
+            });
+            if (answerObject5.classList.contains('right-answer')) {
+              correctAnswers++;
+            }
+            questionsSoFare++;
+            updateScoreText();
+          });
+        });
       }
-    
+
       AFRAME.registerComponent('cursor-listener', {
         init: function () {
           var el = this.el;
@@ -105,6 +280,100 @@
               modelClicked = true;
               // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
               var answerObjects = document.querySelectorAll('.answer');
+              answerObjects.forEach(function (answerObject) {
+                answerObject.setAttribute('visible', true);
+              });
+              addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            }
+          });
+        }
+      });
+      AFRAME.registerComponent('cursor-listener1', {
+        init: function () {
+          var el = this.el;
+    
+          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
+          el.addEventListener('click', function () {
+            if (!modelClicked1) {
+              modelClicked1 = true;
+              // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
+              var answerObjects = document.querySelectorAll('.answer1');
+              answerObjects.forEach(function (answerObject) {
+                answerObject.setAttribute('visible', true);
+              });
+              addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            }
+          });
+        }
+      });
+
+      AFRAME.registerComponent('cursor-listener2', {
+        init: function () {
+          var el = this.el;
+    
+          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
+          el.addEventListener('click', function () {
+            if (!modelClicked2) {
+              modelClicked2 = true;
+              // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
+              var answerObjects = document.querySelectorAll('.answer2');
+              answerObjects.forEach(function (answerObject) {
+                answerObject.setAttribute('visible', true);
+              });
+              addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            }
+          });
+        }
+      });
+
+      AFRAME.registerComponent('cursor-listener3', {
+        init: function () {
+          var el = this.el;
+    
+          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
+          el.addEventListener('click', function () {
+            if (!modelClicked3) {
+              modelClicked3 = true;
+              // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
+              var answerObjects = document.querySelectorAll('.answer3');
+              answerObjects.forEach(function (answerObject) {
+                answerObject.setAttribute('visible', true);
+              });
+              addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            }
+          });
+        }
+      });
+
+      AFRAME.registerComponent('cursor-listener4', {
+        init: function () {
+          var el = this.el;
+    
+          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
+          el.addEventListener('click', function () {
+            if (!modelClicked4) {
+              modelClicked4 = true;
+              // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
+              var answerObjects = document.querySelectorAll('.answer4');
+              answerObjects.forEach(function (answerObject) {
+                answerObject.setAttribute('visible', true);
+              });
+              addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            }
+          });
+        }
+      });
+
+      AFRAME.registerComponent('cursor-listener5', {
+        init: function () {
+          var el = this.el;
+    
+          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
+          el.addEventListener('click', function () {
+            if (!modelClicked5) {
+              modelClicked5 = true;
+              // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
+              var answerObjects = document.querySelectorAll('.answer5');
               answerObjects.forEach(function (answerObject) {
                 answerObject.setAttribute('visible', true);
               });
