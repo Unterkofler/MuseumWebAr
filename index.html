@@ -72,6 +72,7 @@
       var correctAnswers = 0; 
       var totalQuestions = 6;
       var questionsSoFare = 0;
+      var modelClicked = false;
     
       function updateScoreText() {
         var scoreElement = document.getElementById('score');
@@ -100,12 +101,15 @@
     
           // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
           el.addEventListener('click', function () {
-            // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
-            var answerObjects = document.querySelectorAll('.answer');
-            answerObjects.forEach(function (answerObject) {
-              answerObject.setAttribute('visible', true);
-            });
-            addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            if (!modelClicked) {
+              modelClicked = true;
+              // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
+              var answerObjects = document.querySelectorAll('.answer');
+              answerObjects.forEach(function (answerObject) {
+                answerObject.setAttribute('visible', true);
+              });
+              addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
+            }
           });
         }
       });
@@ -114,6 +118,7 @@
       document.getElementById('questionsSoFare').textContent = questionsSoFare;
       document.getElementById('correctAnswers').textContent = correctAnswers;
     </script>
+    
     
   </body>
 </html>
