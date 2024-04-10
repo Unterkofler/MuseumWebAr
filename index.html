@@ -35,20 +35,20 @@
         <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
         
         <!-- Antwortobjekte, die zunächst unsichtbar sind -->
-        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: blue" position="-0.55 0.5 0.7" right-answer></a-entity>
-        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.7" false-answer ></a-entity>
-        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.6" false-answer ></a-entity>
-        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.6" false-answer ></a-entity>
+        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 2; height: 2; depth: 2" material="color: blue" position="-0.55 0.5 0.9" right-answer></a-entity>
+        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: sphere; radius: 1" material="color: yellow" position="0.1 0.5 0.9" false-answer ></a-entity>
+        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: cylinder; radius: 0.75; height: 1" material="color: green" position="-0.55 0.5 0.75" false-answer ></a-entity>
+        <a-entity class="answer" visible="false" scale="0.05 0.05 0.05" rotation="0 90 0" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5" material="color: red" position="0.1 0.5 0.75" false-answer ></a-entity>
         
         <a-plane class="answer" visible="false" position="0 0 -1" width="3" height="1" color="#ffffff" rotation="-90 0 0" opacity="0.8">
           <a-text class="answer" visible="false" value="Was ist die Hauptstadt von Frankreich?" color="#000000"></a-text>
         </a-plane>
 
         <!-- Antwortmöglichkeiten -->
-        <a-text value="Paris"  class="answer" visible="false" position="-0.55 0.5 0.6" rotation="-90 0 0" color="white"></a-text>
-        <a-text value="Berlin"  class="answer" visible="false" position="0.1 0.5 0.6" rotation="-90 0 0" color="white"></a-text>
-        <a-text value="Madrid"  class="answer" visible="false" position="-0.55 0.5 0.7" rotation="-90 0 0" color="white"></a-text>
-        <a-text value="Rom"  class="answer" visible="false" position="0.1 0.5 0.7" rotation="-90 0 0" color="white"></a-text>       
+        <a-text value="Paris"  class="answer" visible="false" position="-0.55 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Berlin"  class="answer" visible="false" position="0.1 0.5 0.9" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Madrid"  class="answer" visible="false" position="-0.55 0.5 0.75" rotation="-90 0 0" color="white"></a-text>
+        <a-text value="Rom"  class="answer" visible="false" position="0.1 0.5 0.75" rotation="-90 0 0" color="white"></a-text>       
       </a-marker>
 
       <!-- Weitere Marker hier einfügen -->
@@ -69,14 +69,35 @@
     </a-scene>
 
     <script>
-    var correctAnswers = 0; 
-    var totalQuestions = 6;
-    var questionsSoFare = 0;
-
+      var correctAnswers = 0; 
+      var totalQuestions = 6;
+      var questionsSoFare = 0;
+    
+      function updateScoreText() {
+        var scoreElement = document.getElementById('score');
+        scoreElement.textContent = `Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}`;
+      }
+    
+      function addClickListeners() {
+        var answerObjects = document.querySelectorAll('.answer');
+        answerObjects.forEach(function (answerObject) {
+          answerObject.addEventListener('click', function () {
+            answerObjects.forEach(function (answer) {
+              answer.setAttribute('visible', false);
+            });
+            if (answerObject.classList.contains('right-answer')) {
+              correctAnswers++;
+            }
+            questionsSoFare++;
+            updateScoreText();
+          });
+        });
+      }
+    
       AFRAME.registerComponent('cursor-listener', {
         init: function () {
           var el = this.el;
-
+    
           // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
           el.addEventListener('click', function () {
             // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
@@ -84,57 +105,16 @@
             answerObjects.forEach(function (answerObject) {
               answerObject.setAttribute('visible', true);
             });
+            addClickListeners(); // Füge Klick-Listener hinzu, wenn Antwortobjekte sichtbar werden
           });
         }
       });
-
-      AFRAME.registerComponent('right-answer', {
-        init: function () {
-          var el = this.el;
-
-
-          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
-          el.addEventListener('click', function () {
-            // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
-            var answerObjects = document.querySelectorAll('.answer');
-            answerObjects.forEach(function (answerObject) {
-            answerObject.setAttribute('visible', false);
-            });
-            correctAnswers++;
-            questionsSoFare++;
-            updateScoreText();
-          });
-        }
-      });
-
-      AFRAME.registerComponent('false-answer', {
-        init: function () {
-          var el = this.el;
-
-          // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
-          el.addEventListener('click', function () {
-            // Zeige die Antwortobjekte an, indem ihre Sichtbarkeit geändert wird
-            var answerObjects = document.querySelectorAll('.answer');
-            answerObjects.forEach(function (answerObject) {
-              answerObject.setAttribute('visible', false);
-            });
-            questionsSoFare++;
-            updateScoreText();
-          });
-        }
-      });
-
-        function updateScoreText() {
-    var scoreElement = document.getElementById('score');
-    scoreElement.textContent = `Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}`;
-  }
-
-
+    
       document.getElementById('totalQuestions').textContent = totalQuestions;
       document.getElementById('questionsSoFare').textContent = questionsSoFare;
       document.getElementById('correctAnswers').textContent = correctAnswers;
-
     </script>
+    
   </body>
 </html>
 
