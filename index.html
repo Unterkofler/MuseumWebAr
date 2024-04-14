@@ -8,7 +8,7 @@
   <style>
     #scoreBar {
       position: fixed;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
       height: 50px;
@@ -25,24 +25,32 @@
     </div>
     <a-scene embedded arjs='sourceType: webcam;' antialias="true" renderer="logarithmicDepthBuffer: true">
       <a-assets>
-        <a-asset-item id="scene" src="gltf/scene.gltf"></a-asset-item>
+        <a-asset-item id="van_gogh" src="gltf/van_gogh/scene.gltf"></a-asset-item>
+        <a-asset-item id="mona_lisa" src="gltf/mona_lisa/scene.gltf"></a-asset-item>
+                <!--braucht scale scale="0.07 0.07 0.07"         <a-gltf-model src="#water_lilies" scale="0.01 0.01 0.01" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
+-->
+        <a-asset-item id="water_lilies" src="gltf/water_lilies/scene.gltf"></a-asset-item>
+        <a-asset-item id="banksy" src="gltf/banksy_3/scene.gltf"></a-asset-item>
+                <!-- muss in position  position="0 -70 0" geschoben werden-->
+        <a-asset-item id="franz_marc" src="gltf/franz_marc/scene.gltf"></a-asset-item>
+        <a-asset-item id="edgar_degas" src="gltf/edgar_degas/scene.gltf"></a-asset-item>
       </a-assets>
 
        <!-- Marker start -->
-       <a-marker id="marker-start" type="pattern" url="marker\pattern-C_Marker.patt">
+       <a-marker id="marker-start" type="pattern" url="marker\pattern-start.patt">
         <!-- Platzhalter für die Spielanleitung -->
-        <a-text class="instruction" value="0" color="white" rotation="-90 0 0" scale="2 2 2" position="0 0 0"></a-text>
-        <a-box class="next-instruction" scale="0.05 0.05 0.05" width="4" height="4" depth="4" color="blue" position="1 0 0" next material="opacity: 0.5">
+        <a-text class="instruction" value="Willkommen zum WebAR-Museumsquiz! Suche mit deiner Handy-Kamera einen Marker. Wenn der Marker komplett im Sichtfeld der Kamera ist, erscheint ein Objekt." color="white" height="3" width="2" rotation="-90 0 0" scale="1 1 1" position="-1 0 0"></a-text>
+        <a-box class="next-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="0.5 0 0.5" next material="opacity: 0.5">
           <a-text value="Next" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
         </a-box>
-        <a-box class="back-instruction" scale="0.05 0.05 0.05" width="4" height="4" depth="4" color="blue" position="0 0 0" back material="opacity: 0.5">
+        <a-box class="back-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="-0.5 0 0.5" back material="opacity: 0.5">
           <a-text value="Back" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
         </a-box>
       </a-marker>
 
       <!-- Marker 1 -->
       <a-marker id="marker" type="pattern" url="marker\pattern-A_Marker.patt">
-        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
+        <a-gltf-model src="#edgar_degas" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
         <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
 
         <!-- Antwortobjekte, die zunächst unsichtbar sind -->
@@ -58,13 +66,14 @@
         <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
           <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
         </a-box>
-        <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
           <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
         </a-plane>
       </a-marker>
 
+            <!-- Marker 2-->
       <a-marker id="marker1" type="pattern" url="marker\pattern-B_Marker.patt">
-        <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener></a-gltf-model>
+        <a-gltf-model src="#banksy" scale="1 1 1" rotation="0 0 0" position="0 0.2 0" id="image1" material="side: double;" cursor-listener></a-gltf-model>
         <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="black"></a-text>
 
         <!-- Antwortobjekte, die zunächst unsichtbar sind -->
@@ -80,11 +89,102 @@
         <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
           <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
         </a-box>
-        <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
           <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
         </a-plane>
+      </a-marker>
 
-        <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+            <!-- Marker 1 -->
+            <a-marker id="marker2" type="pattern" url="marker\pattern-C_Marker.patt">
+              <a-gltf-model src="#van_gogh" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
+              <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+      
+              <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" material="opacity: 0.5" right-answer>
+                <a-text class="answer" value="A" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" material="opacity: 0.5" false-answer>
+                <a-text class="answer" value="B" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" material="opacity: 0.5" false-answer>
+                <a-text class="answer" value="C" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
+                <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+                <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
+              </a-plane>
+            </a-marker>
+
+
+                  <!-- Marker 1 -->
+      <a-marker id="marker3" type="pattern" url="marker\pattern-D_Marker.patt">
+        <a-gltf-model src="#mona_lisa" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" material="opacity: 0.5" right-answer>
+          <a-text class="answer" value="A" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="B" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="C" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
+        </a-plane>
+      </a-marker>
+
+
+            <!-- Marker 1 -->
+            <a-marker id="marker4" type="pattern" url="marker\pattern-E_Marker.patt">
+              <a-gltf-model src="#water_lilies" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
+              <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+      
+              <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" material="opacity: 0.5" right-answer>
+                <a-text class="answer" value="A" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" material="opacity: 0.5" false-answer>
+                <a-text class="answer" value="B" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" material="opacity: 0.5" false-answer>
+                <a-text class="answer" value="C" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
+                <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+              </a-box>
+              <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+                <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
+              </a-plane>
+            </a-marker>
+
+
+                  <!-- Marker 1 -->
+      <a-marker id="marker5" type="pattern" url="marker\pattern-F_Marker.patt">
+        <a-gltf-model src="#franz_marc" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
+        <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
+
+        <!-- Antwortobjekte, die zunächst unsichtbar sind -->
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" material="opacity: 0.5" right-answer>
+          <a-text class="answer" value="A" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="B" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="C" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
           <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
         </a-plane>
       </a-marker>
@@ -105,24 +205,27 @@
 
     <script>
            var currentIndex = 0;
+           var instructions = ["Willkommen zum WebAR-Museumsquiz! Suche mit deiner Handy-Kamera einen Marker. Wenn der Marker komplett im Sichtfeld der Kamera ist, erscheint ein Objekt.",
+           "Richte den Cursor auf das Objekt und halte ihn kurz darauf. Eine Frage mit 4 Antwortmöglichkeiten erscheint. Richte den Cursor auf die richtige Antwort.",
+            "Oben siehst du, wie viele Antworten richtig waren. Das Spiel ist vorbei, wenn 6 Fragen beantwortet wurden. Viel Spaß!"];
       AFRAME.registerComponent('next', {
         init: function(){
           var el = this.el;
           var markerId = el.parentNode.getAttribute('id');
-          var instructions = ["1", "2", "3", "4"]
           
           el.addEventListener('click', function(){
             var marker = document.querySelector('#' + markerId);
-            if(currentIndex === instructions.length){
-              marker.querySelectorAll('.instruction, .next-instruction').forEach(function(obj) {
+            if(currentIndex + 1 === instructions.length){
+              marker.querySelectorAll('.instruction, .next-instruction, .back-instruction').forEach(function(obj) {
                 obj.parentNode.removeChild(obj);
         });
             }
+            currentIndex++;
       if (marker) {
         marker.querySelectorAll('.instruction').forEach(function(obj) {
           obj.setAttribute('value', instructions[currentIndex]);
         });
-        currentIndex++;
+
             }
           })
         }
@@ -132,14 +235,13 @@
     init: function(){
       var el = this.el;
       var markerId = el.parentNode.getAttribute('id');
-      var instructions = ["0", "1", "2", "3"]; // Die Anweisungen sollten hier korrekt sein, basierend auf der Anzahl der Anweisungen im Array.
 
       el.addEventListener('click', function(){
         var marker = document.querySelector('#' + markerId);
         if(currentIndex === 0){ // Wenn der Index bereits bei 0 ist, beende die Funktion
           return;
         }
-        currentIndex--;
+        currentIndex = currentIndex-1;
         if (marker) {
           marker.querySelectorAll('.instruction').forEach(function(obj) {
             obj.setAttribute('value', instructions[currentIndex]);
@@ -220,6 +322,9 @@ AFRAME.registerComponent('cursor-listener', {
         // Alle Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
         marker.querySelectorAll('.false-answer, .right-answer, .plane, .question .answer').forEach(function(obj) {
           // Überprüfe, ob es sich um eine Box handelt
+          if(obj.tagName === 'A-GLFT-MODEL'){
+            obj.setAttribute('position', '0 0 -1.1')
+          }
           if (obj.tagName === 'A-BOX') {
             // Setze die Größe der Box
             obj.setAttribute('width', '4');
@@ -235,11 +340,12 @@ AFRAME.registerComponent('cursor-listener', {
           if(obj.tagName === 'A-PLANE'){
             obj.setAttribute('width', '3');
             obj.setAttribute('height', '1');
+            obj.setAttribute('position', '0 0 0');
             var children = obj.children;
             // Jetzt kannst du auf die Kinder zugreifen und sie manipulieren
             for (var i = 0; i < children.length; i++) {
               var child = children[i];
-              child.setAttribute('position', '0 0 -1.1');
+              child.setAttribute('position', '0 0 0');
             }
           }
         });
