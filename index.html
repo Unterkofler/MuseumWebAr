@@ -283,8 +283,15 @@
 
         marker.querySelectorAll('.model').forEach(function(obj) {
           if(obj.tagName === 'A-GLTF-MODEL'){
-            obj.setAttribute('position', '0 0.2 0');
-            obj.setAttribute('scale', '1 1 1');
+            var oldModelRotation = obj.getAttribute('rotation');
+            var oldModelSrc = obj.getAttribute('src');
+            obj.parentNode.removeChild(obj);
+            var newModel = document.createElement('a-gltf-model');
+            newModel.setAttribute('src', oldModelSrc);
+            newModel.setAttribute('position', '0 0.2 0');
+            newModel.setAttribute('scale', '1 1 1');
+            newModel.setAttribute( 'rotation', oldModelRotation )
+            marker.appendChild(newModel);
           }
         });
       }
@@ -312,8 +319,15 @@
         });
         marker.querySelectorAll('.model').forEach(function(obj) {
           if(obj.tagName === 'A-GLTF-MODEL'){
-            obj.setAttribute('position', '0 0.2 0');
-            obj.setAttribute('scale', '1 1 1');
+            var oldModelRotation = obj.getAttribute('rotation');
+            var oldModelSrc = obj.getAttribute('src');
+            obj.parentNode.removeChild(obj);
+            var newModel = document.createElement('a-gltf-model');
+            newModel.setAttribute('src', oldModelSrc);
+            newModel.setAttribute('position', '0 0.2 0');
+            newModel.setAttribute('scale', '1 1 1');
+            newModel.setAttribute( 'rotation', oldModelRotation )
+            marker.appendChild(newModel);
           }
         });
       }
@@ -327,7 +341,7 @@ AFRAME.registerComponent('cursor-listener', {
     var markerId = el.parentNode.getAttribute('id'); // ID des Elements, auf das die Komponente angewendet wird
 
     // Füge einen Event-Listener für das 'click'-Ereignis auf das Modell hinzu
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function handleClick() {
 
       // Überprüfe, ob das aktuelle Modell innerhalb eines a-marker mit der entsprechenden ID ist
       var marker = document.querySelector('#' + markerId);
