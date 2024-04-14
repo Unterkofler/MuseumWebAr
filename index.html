@@ -8,7 +8,7 @@
   <style>
     #scoreBar {
       position: fixed;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
       height: 50px;
@@ -46,11 +46,18 @@
         <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="white"></a-text>
 
         <!-- Antwortobjekte, die zunächst unsichtbar sind -->
-        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" false-answer></a-box>
-        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" false-answer></a-box>
-        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" right-answer></a-box>
-        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" false-answer></a-box>
-
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" material="opacity: 0.5" right-answer>
+          <a-text class="answer" value="A" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="B" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="C" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
         <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
           <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
         </a-plane>
@@ -61,10 +68,21 @@
         <a-text value="Autor:" position="0.7 0 -0.5" rotation="-90 0 0" color="black"></a-text>
 
         <!-- Antwortobjekte, die zunächst unsichtbar sind -->
-        <a-box class="false-answer" scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" false-answer></a-box>
-        <a-box class="false-answer" scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" false-answer></a-box>
-        <a-box class="false-answer" scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" right-answer></a-box>
-        <a-box class="false-answer" scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" false-answer></a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="green" position="-0.55 0.5 0.55" material="opacity: 0.5" right-answer>
+          <a-text class="answer" value="A" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="B" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="blue" position="-0.55 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="C" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.1 0.5 0.9" material="opacity: 0.5" false-answer>
+          <a-text class="answer" value="D" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
+        </a-box>
+        <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
+          <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
+        </a-plane>
 
         <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
           <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
@@ -157,7 +175,7 @@
       var marker = document.querySelector('#' + markerId);
       if (marker) {
         // Nur die Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
-        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question').forEach(function(obj) {
+        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question, .answer').forEach(function(obj) {
           obj.parentNode.removeChild(obj);
         });
       }
@@ -180,7 +198,7 @@
       var marker = document.querySelector('#' + markerId);
       if (marker) {
         // Nur die Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
-        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question').forEach(function(obj) {
+        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question .answer').forEach(function(obj) {
           obj.parentNode.removeChild(obj);
         });
       }
@@ -200,21 +218,29 @@ AFRAME.registerComponent('cursor-listener', {
       var marker = document.querySelector('#' + markerId);
       if (marker) {
         // Alle Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
-        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question').forEach(function(obj) {
+        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question .answer').forEach(function(obj) {
           // Überprüfe, ob es sich um eine Box handelt
           if (obj.tagName === 'A-BOX') {
             // Setze die Größe der Box
             obj.setAttribute('width', '4');
             obj.setAttribute('height', '4');
             obj.setAttribute('depth', '4');
+            var children = obj.children;
+            // Jetzt kannst du auf die Kinder zugreifen und sie manipulieren
+            for (var i = 0; i < children.length; i++) {
+              var child = children[i];
+              child.setAttribute('visible', 'true');
+            }
           }
           if(obj.tagName === 'A-PLANE'){
             obj.setAttribute('width', '3');
-            obj.setAttribute('height', '1')
-          }
-          //Muss ich mir noch was einfallen lassen weil ich habe ja dann noch a-texte bei den antwortmöglichkeiten
-          if(obj.tagName === 'A-TEXT'){
-            obj.setAttribute('position', '0 0 -1.1');
+            obj.setAttribute('height', '1');
+            var children = obj.children;
+            // Jetzt kannst du auf die Kinder zugreifen und sie manipulieren
+            for (var i = 0; i < children.length; i++) {
+              var child = children[i];
+              child.setAttribute('position', '0 0 -1.1');
+            }
           }
         });
       }
