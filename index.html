@@ -28,6 +28,18 @@
         <a-asset-item id="scene" src="gltf/scene.gltf"></a-asset-item>
       </a-assets>
 
+       <!-- Marker start -->
+       <a-marker id="marker-start" type="pattern" url="marker\pattern-C_Marker.patt">
+        <!-- Platzhalter für die Spielanleitung -->
+        <a-text class="instruction" value="0" color="white" rotation="-90 0 0" scale="2 2 2" position="0 0 0"></a-text>
+        <a-box class="next-instruction" scale="0.05 0.05 0.05" width="4" height="4" depth="4" color="blue" position="1 0 0" next material="opacity: 0.5">
+          <a-text value="Next" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
+        </a-box>
+        <a-box class="back-instruction" scale="0.05 0.05 0.05" width="4" height="4" depth="4" color="blue" position="0 0 0" back material="opacity: 0.5">
+          <a-text value="Back" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
+        </a-box>
+      </a-marker>
+
       <!-- Marker 1 -->
       <a-marker id="marker" type="pattern" url="marker\pattern-A_Marker.patt">
         <a-gltf-model src="#scene" scale="1 1 1" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
@@ -40,7 +52,7 @@
         <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" false-answer></a-box>
 
         <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-          <a-text class="text" value="Frankreich?" color="black"></a-text>
+          <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
         </a-plane>
       </a-marker>
 
@@ -55,7 +67,7 @@
         <a-box class="false-answer" scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="red" position="0.1 0.5 0.55" false-answer></a-box>
 
         <a-plane class="plane" position="0 0 -1.1" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-          <a-text class="text" value="Frankreich?" color="black"></a-text>
+          <a-text class="question" value="Frankreich?" position="100 0 0" color="black"></a-text>
         </a-plane>
       </a-marker>
 
@@ -72,6 +84,53 @@
         </a-cursor>
       </a-camera-static>
     </a-scene>
+
+    <script>
+           var currentIndex = 0;
+      AFRAME.registerComponent('next', {
+        init: function(){
+          var el = this.el;
+          var markerId = el.parentNode.getAttribute('id');
+          var instructions = ["1", "2", "3", "4"]
+          
+          el.addEventListener('click', function(){
+            var marker = document.querySelector('#' + markerId);
+            if(currentIndex === instructions.length){
+              marker.querySelectorAll('.instruction, .next-instruction').forEach(function(obj) {
+                obj.parentNode.removeChild(obj);
+        });
+            }
+      if (marker) {
+        marker.querySelectorAll('.instruction').forEach(function(obj) {
+          obj.setAttribute('value', instructions[currentIndex]);
+        });
+        currentIndex++;
+            }
+          })
+        }
+      });
+
+  AFRAME.registerComponent('back', {
+    init: function(){
+      var el = this.el;
+      var markerId = el.parentNode.getAttribute('id');
+      var instructions = ["0", "1", "2", "3"]; // Die Anweisungen sollten hier korrekt sein, basierend auf der Anzahl der Anweisungen im Array.
+
+      el.addEventListener('click', function(){
+        var marker = document.querySelector('#' + markerId);
+        if(currentIndex === 0){ // Wenn der Index bereits bei 0 ist, beende die Funktion
+          return;
+        }
+        currentIndex--;
+        if (marker) {
+          marker.querySelectorAll('.instruction').forEach(function(obj) {
+            obj.setAttribute('value', instructions[currentIndex]);
+          });
+        }
+      });
+    }
+  });
+</script>
 
     <script>
       var correctAnswers = 0;
@@ -98,7 +157,7 @@
       var marker = document.querySelector('#' + markerId);
       if (marker) {
         // Nur die Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
-        marker.querySelectorAll('.false-answer, .right-answer, .plane, .text').forEach(function(obj) {
+        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question').forEach(function(obj) {
           obj.parentNode.removeChild(obj);
         });
       }
@@ -121,7 +180,7 @@
       var marker = document.querySelector('#' + markerId);
       if (marker) {
         // Nur die Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
-        marker.querySelectorAll('.false-answer, .right-answer, .plane, .text').forEach(function(obj) {
+        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question').forEach(function(obj) {
           obj.parentNode.removeChild(obj);
         });
       }
@@ -141,7 +200,7 @@ AFRAME.registerComponent('cursor-listener', {
       var marker = document.querySelector('#' + markerId);
       if (marker) {
         // Alle Antwortobjekte innerhalb des aktuellen a-marker sichtbar machen
-        marker.querySelectorAll('.false-answer, .right-answer, .plane, .text').forEach(function(obj) {
+        marker.querySelectorAll('.false-answer, .right-answer, .plane, .question').forEach(function(obj) {
           // Überprüfe, ob es sich um eine Box handelt
           if (obj.tagName === 'A-BOX') {
             // Setze die Größe der Box
@@ -153,8 +212,9 @@ AFRAME.registerComponent('cursor-listener', {
             obj.setAttribute('width', '3');
             obj.setAttribute('height', '1')
           }
+          //Muss ich mir noch was einfallen lassen weil ich habe ja dann noch a-texte bei den antwortmöglichkeiten
           if(obj.tagName === 'A-TEXT'){
-            obj.setAttribute('visible', true);
+            obj.setAttribute('position', '0 0 -1.1');
           }
         });
       }
