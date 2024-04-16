@@ -27,11 +27,8 @@
       <a-assets>
         <a-asset-item id="van_gogh" src="gltf/van_gogh/scene.gltf"></a-asset-item>
         <a-asset-item id="mona_lisa" src="gltf/mona_lisa/scene.gltf"></a-asset-item>
-                <!--braucht scale scale="0.07 0.07 0.07"         <a-gltf-model src="#water_lilies" scale="0.01 0.01 0.01" rotation="-90 0 0" position="0 0.2 0" id="image" material="side: double;" cursor-listener></a-gltf-model>
--->
         <a-asset-item id="water_lilies" src="gltf/water_lilies/scene.gltf"></a-asset-item>
         <a-asset-item id="banksy" src="gltf/banksy_3/scene.gltf"></a-asset-item>
-                <!-- muss in position  position="0 -70 0" geschoben werden-->
         <a-asset-item id="franz_marc" src="gltf/franz_marc/scene.gltf"></a-asset-item>
         <a-asset-item id="edgar_degas" src="gltf/edgar_degas/scene.gltf"></a-asset-item>
       </a-assets>
@@ -39,11 +36,11 @@
        <!-- Marker start -->
        <a-marker id="marker-start" type="pattern" url="marker\pattern-start.patt">
         <!-- Platzhalter für die Spielanleitung -->
-        <a-text class="instruction" value="Willkommen zum WebAR-Museumsquiz! Suche mit deiner Handy-Kamera einen Marker. Wenn der Marker komplett im Sichtfeld der Kamera ist, erscheint ein Objekt." color="white" height="3" width="2" rotation="-90 0 0" scale="1 1 1" position="-1 0 0"></a-text>
-        <a-box class="next-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="0.5 0 0.5" next material="opacity: 0.5">
+        <a-text class="instruction" value="Willkommen zum WebAR-Museumsquiz! Suche mit deiner Handy-Kamera einen Marker. Wenn der Marker komplett im Sichtfeld der Kamera ist, erscheint ein Objekt." color="#808080" height="4" width="1.8" rotation="-90 0 0" scale="2 2 2" position="-1.8 0 0"></a-text>
+        <a-box class="next-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="0.5 0 0.7" next material="opacity: 0.5">
           <a-text value="Next" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
         </a-box>
-        <a-box class="back-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="-0.5 0 0.5" back material="opacity: 0.5">
+        <a-box class="back-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="-0.5 0 0.7" back material="opacity: 0.5">
           <a-text value="Back" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
         </a-box>
       </a-marker>
@@ -66,8 +63,8 @@
         <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.4 0.5 0.9" material="opacity: 0.5" right-answer>
           <a-text class="answer" value="über 200" rotation="-90 0 0" scale="4 4 4" position="2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
         </a-box>
-        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-          <a-text class="question" value="Edgar Degas erschuf viele Bilder zum Thema Ballett. Schätze wie viele" position="100 0 0" color="black"></a-text>
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.5">
+          <a-text class="question" value="Edgar Degas erschuf viele Bilder zum Thema Ballett. Schätze wie viele" position="100 0 0" scale="1.2 1.5 1.5" color="#808080"></a-text>
         </a-plane>
       </a-marker>
 
@@ -89,8 +86,8 @@
         <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.4 0.5 0.9" material="opacity: 0.5" false-answer>
           <a-text class="answer" value="Richard J. Hunter" rotation="-90 0 0" scale="4 4 4" position="2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
         </a-box>
-        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-          <a-text class="question" value="Wie heißt der Streetart-Künstler Banksy mit bürgerlichem Namen?" position="100 0 0" color="black"></a-text>
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.5">
+          <a-text class="question" value="Wie heißt der Streetart-Künstler Banksy mit bürgerlichem Namen?" position="100 0 0" scale="1.2 1.5 1.5" color="#808080" ></a-text>
         </a-plane>
       </a-marker>
 
@@ -112,8 +109,8 @@
               <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.4 0.5 0.9" material="opacity: 0.5" false-answer>
                 <a-text class="answer" value="Gustav Klimt" rotation="-90 0 0" scale="4 4 4" position="2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
               </a-box>
-              <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-                <a-text class="question" value="Von welchem berühmten Maler stammt die Sternennacht" position="100 0 0" color="black"></a-text>
+              <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.5">
+                <a-text class="question" value="Von welchem berühmten Maler stammt die Sternennacht" position="100 0 0" scale="1.2 1.5 1.5" color="#808080"></a-text>
               </a-plane>
             </a-marker>
 
@@ -136,8 +133,8 @@
         <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.4 0.5 0.9" material="opacity: 0.5" false-answer>
           <a-text class="answer" value="British Museum" rotation="-90 0 0" scale="4 4 4" position="2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
         </a-box>
-        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-          <a-text class="question" value="Wo wird die Mona Lisa von Leonardo da Vinci ausgestellt?" position="100 0 0" color="black"></a-text>
+        <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.5">
+          <a-text class="question" value="Wo wird die Mona Lisa von Leonardo da Vinci ausgestellt?" position="100 0 0" scale="1.2 1.5 1.5" color="#808080"></a-text>
         </a-plane>
       </a-marker>
 
@@ -160,8 +157,8 @@
               <a-box class="false-answer"  scale="0.05 0.05 0.05" width="0" height="0" depth="0" color="yellow" position="0.4 0.5 0.9" material="opacity: 0.5" false-answer>
                 <a-text class="answer" value="Picasso" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
               </a-box>
-              <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.8">
-                <a-text class="question" value="Welcher Maler war berühmt für seine Wasserlilien?" position="100 0 0" color="black"></a-text>
+              <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.5">
+                <a-text class="question" value="Welcher Maler war berühmt für seine Wasserlilien?" position="100 0 0" scale="1.2 1.5 1.5" color="#808080"></a-text>
               </a-plane>
             </a-marker>
 
@@ -185,7 +182,7 @@
           <a-text class="answer" value="Grüner Hase" rotation="-90 0 0" scale="4 4 4" position="2 0 0" width="10" height="10" color="black" font-weight="bold" visible="false"></a-text>
         </a-box>
         <a-plane class="plane" position="0 0 0" width="0" height="0" color="#ffffff" rotation="-90 0 0" opacity="0.5">
-          <a-text class="question" value="Franz Marc malte oft Tiere. Für welches Tier war er besonders bekannt?" position="100 0.2 0" color="black"></a-text>
+          <a-text class="question" value="Franz Marc malte oft Tiere. Für welches Tier war er besonders bekannt?" position="100 0 0" scale="1.2 1.5 1.5" color="#808080"></a-text>
         </a-plane>
       </a-marker>
 
@@ -415,7 +412,7 @@ AFRAME.registerComponent('cursor-listener', {
           if(obj.tagName === 'A-PLANE'){
             obj.setAttribute('width', '2');
             obj.setAttribute('height', '0.5');
-            obj.setAttribute('position', '0 0 0');
+            obj.setAttribute('position', '0.05 0 0');
             var children = obj.children;
             // Jetzt kannst du auf die Kinder zugreifen und sie manipulieren
             for (var i = 0; i < children.length; i++) {
