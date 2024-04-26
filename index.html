@@ -19,11 +19,26 @@
       text-align: center;
       line-height: 50px;
     }
+    .toast {
+  position: fixed;
+  bottom: 70px; /* Verschiebung um 70px vom unteren Rand */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 40px 80px; /* Doppelte Polsterung für einen doppelt so großen Toast */
+  font-size: 40px; /* Doppelte Schriftgröße */
+  border-radius: 20px; /* Größere abgerundete Ecken */
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5); /* Größerer Schatten */
+}
+
+
   </style>
   <body>
     <div id="scoreBar">
       <span id="score">Fragen <span id="totalQuestions"></span>/<span id="questionsSoFare"></span> - Richtig beantwortet: <span id="correctAnswers"></span>
     </div>
+    <div id="toastContainer"></div>
     <a-scene embedded arjs='sourceType: webcam;' antialias="true" renderer="logarithmicDepthBuffer: true">
       <a-assets>
         <a-asset-item id="van_gogh" src="gltf/van_gogh/scene.gltf"></a-asset-item>
@@ -255,13 +270,28 @@
       var correctAnswers = 0;
       var totalQuestions = 6;
       var questionsSoFare = 0;
-      var modelClicked = false;
-      var modelClicked1 = false;
 
       function updateScoreText() {
         var scoreElement = document.getElementById('score');
         scoreElement.textContent = `Fragen ${totalQuestions}/${questionsSoFare} - Richtig beantwortet: ${correctAnswers}`;
+        if(totalQuestions === questionsSoFare){
+          showToast("Quiz beendet");
+        }
       }
+
+      function showToast(message) {
+  // Erstellen des Toast-Elements
+  var toast = document.createElement('div');
+  toast.textContent = message;
+  toast.className = 'toast';
+  document.getElementById('toastContainer').appendChild(toast);
+
+  // Entfernen des Toasts nach einer bestimmten Zeit
+  setTimeout(function() {
+    toast.parentNode.removeChild(toast);
+  }, 5000); // Der Toast wird nach 3000 Millisekunden (3 Sekunden) entfernt
+}
+
 
       AFRAME.registerComponent('false-answer', {
   init: function() {
@@ -425,7 +455,6 @@ AFRAME.registerComponent('cursor-listener', {
     });
   }
 });
-
       document.getElementById('totalQuestions').textContent = totalQuestions;
       document.getElementById('questionsSoFare').textContent = questionsSoFare;
       document.getElementById('correctAnswers').textContent = correctAnswers;
