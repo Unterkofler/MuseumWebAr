@@ -37,7 +37,7 @@
        <!-- Marker start -->
        <a-marker id="marker-start" type="pattern" url="marker\pattern-start.patt">
         <!-- Platzhalter für die Spielanleitung -->
-        <a-text class="instruction" value="Willkommen zum WebAR-Museumsquiz! Suche mit deiner Handy-Kamera einen Marker. Wenn der Marker komplett im Sichtfeld der Kamera ist, erscheint ein Objekt." color="red" height="4" width="1.8" rotation="-90 0 0" scale="2 2 2" position="-1.8 0 0" font="https://cdn.aframe.io/fonts/Aileron-Semibold.fnt"></a-text>
+        <a-text class="instruction" value="Willkommen zum WebAR-Museumsquiz!\nSuche mit deiner Handy-Kamera einen \nMarker. Wenn der Marker komplett im \nSichtfeld der Kamera ist, erscheint ein \nObjekt." color="red" height="4" width="1.8" rotation="-90 0 0" scale="1.5 1.5 1.5" position="0 0 0" align="center"></a-text>
         <a-box class="next-instruction" scale="0.1 0.1 0.1" width="4" height="4" depth="4" color="blue" position="0.5 0 0.7" next material="opacity: 0.5">
           <a-text value="Next" rotation="-90 0 0" scale="4 4 4" position="-2.2 0 0" width="10" height="10" color="black" font-weight="bold"></a-text>
         </a-box>
@@ -204,9 +204,9 @@
 
     <script>
            var currentIndex = 0;
-           var instructions = ["Willkommen zum WebAR-Museumsquiz! Suche mit deiner Handy-Kamera einen Marker. Wenn der Marker komplett im Sichtfeld der Kamera ist, erscheint ein Objekt.",
-           "Richte den Cursor auf das Objekt und halte ihn kurz darauf. Eine Frage mit 4 Antwortmoeglichkeiten erscheint. Richte den Cursor auf die richtige Antwort.",
-            "Oben siehst du, wie viele Antworten richtig waren. Das Spiel ist vorbei, wenn 6 Fragen beantwortet wurden. Viel Spass!"];
+           var instructions = ["Willkommen zum WebAR-Museumsquiz!\nSuche mit deiner Handy-Kamera einen \nMarker. Wenn der Marker komplett im \nSichtfeld der Kamera ist, erscheint ein\nObjekt.",
+                               "Richte den Cursor auf das Objekt\nund halte ihn kurz darauf. Eine Frage\nmit 4 Antwortmoeglichkeiten erscheint.\nRichte den Cursor auf die richtige\nAntwort.",
+                               "Oben siehst du, wie viele Antworten\nrichtig waren. Das Spiel ist vorbei,\nwenn 6 Fragen beantwortet wurden.\nViel Spass!"];
       AFRAME.registerComponent('next', {
         init: function(){
           var el = this.el;
